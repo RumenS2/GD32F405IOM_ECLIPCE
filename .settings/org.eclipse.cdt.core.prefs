@@ -1,0 +1,11 @@
+doxygen/doxygen_new_line_after_brief=true
+doxygen/doxygen_use_brief_tag=false
+doxygen/doxygen_use_javadoc_tags=true
+doxygen/doxygen_use_pre_tag=false
+doxygen/doxygen_use_structural_commands=false
+eclipse.preferences.version=1
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.2001766759/PATH/delimiter=\:
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.2001766759/PATH/operation=replace
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.2001766759/PATH/value=/home/ru/Downloads/GigaDevice/xpack-arm-none-eabi-gcc-11.3.1-1.1/bin\:/home/ru/.local/bin\:/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/usr/games\:/usr/local/games\:/snap/bin\:/home/ru/.local/bin
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.2001766759/append=true
+environment/project/ilg.gnuarmeclipse.managedbuild.cross.config.elf.release.2001766759/appendContributed=true
