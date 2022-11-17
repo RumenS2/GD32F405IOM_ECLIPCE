@@ -312,7 +312,7 @@ unsigned int IIR;
 	{
 		*RSS.BegPnt=(uint8_t)USART_DATA(USART0);
 
-		if (IIR&(USART_STAT0_FERR|USART_STAT0_IDLEF|USART_STAT0_LBDF))
+		if (IIR&(USART_STAT0_FERR|USART_STAT0_IDLEF)) // |USART_STAT0_LBDF))
 		{
 //already cleared with reading form SR and DR USART1->SR=(USART_SR_FE|USART_SR_IDLE|USART_SR_LBD);
 			if (RSS.wCRC==0){USARTinUSE_RX_DISABLE(USART0);RSS.CntTimeout=SysTickCntr;goto exii;}
@@ -377,7 +377,7 @@ unsigned int IIR;
 	{
 		*RSS2.BegPnt=(uint8_t)USART_DATA(USART2);
 
-		if (IIR&(USART_STAT0_FERR|USART_STAT0_IDLEF|USART_STAT0_LBDF))
+		if (IIR&(USART_STAT0_FERR|USART_STAT0_IDLEF)) // |USART_STAT0_LBDF))
 		{
 //already cleared with reading form SR and DR USART1->SR=(USART_SR_FE|USART_SR_IDLE|USART_SR_LBD);
 			if (RSS2.wCRC==0){USARTinUSE_RX_DISABLE(USART2);RSS2.CntTimeout=SysTickCntr;goto exii;}

@@ -410,7 +410,7 @@ void MX_TIM4_Init(void)
 static void MX_TIM2_Init(void)
 {
 	timer_ic_parameter_struct timer_icintpara;
-    timer_oc_parameter_struct timer_ocintpara;
+//    timer_oc_parameter_struct timer_ocintpara;
     timer_parameter_struct timer_initpara;
 
 
@@ -466,7 +466,7 @@ void MX_USART0_UART_Init(void)
     /**USART1 GPIO Configuration
     PA9   ------> USART0_TX
     PA10   ------> USART0_RX
-    /* connect port to USARTx_Tx */
+    connect port to USARTx_Tx **/
     gpio_af_set(GPIOA, GPIO_AF_7, GPIO_PIN_9);
     /* connect port to USARTx_Rx */
     gpio_af_set(GPIOA, GPIO_AF_7, GPIO_PIN_10);
@@ -635,20 +635,5 @@ void MX_GPIO_Init(void)
 }
 
 
-/**
-  * @brief  This function is executed in case of error occurrence.
-  * @param  file: The file name as string.
-  * @param  line: The line in file as a number.
-  * @retval None
-  */
-void _Error_Handler(char *file, int line)
-{
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  while(1)
-  {
-  }
-  /* USER CODE END Error_Handler_Debug */
-}
 
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

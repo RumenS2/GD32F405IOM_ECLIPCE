@@ -182,9 +182,11 @@ static uint16_t icount=0;
   /* USER CODE BEGIN SysTick_IRQn 0 */
 	SysTickCntr+=icount;icount^=0x0001; //SysTick is incremented every 2*50us
     if (EnableTasking!=0x10) goto exii;
+////    if (icount) {OffCPUSecLED;}else{OnCPUSecLED;}
+//    OffCPUSecLED;
     if (icount) Anstat100uS();
     AdcsInt50uS();
-
+//    OnCPUSecLED;
 
  /* USER CODE END SysTick_IRQn 1 */
 exii:;

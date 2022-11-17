@@ -68,7 +68,7 @@
 * Defines *
 **********/
 /** Absolute Zero. */
-#define TABS (-273.15)
+#define TABS (-273.15f)
 
 /************
 * Variables *
@@ -124,8 +124,8 @@ fprecicion rtot(fprecicion r)
 {
   fprecicion ti;
 
-  ti = poly(log(r), 3, a);
-  ti = 1.0 / ti + TABS;
+  ti = poly(logf(r), 3, a);
+  ti = 1.0f / ti + TABS;
   return ti;
 }
 

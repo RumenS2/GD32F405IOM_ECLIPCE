@@ -47,6 +47,7 @@
 #include "AnalisRS.h"
 #include "rtot.h"
 
+int* __errno(void);
 int myerrno;
 int* __errno(void){return &myerrno;}
 
@@ -69,7 +70,7 @@ volatile uint32_t CntPrnt=0,Cntpwdown=0;
 
 /* Private function prototypes -----------------------------------------------*/
 void RecalSomeVars(void);
-
+uint32_t CalcCRC32a32(uint32_t *pBegin, uint32_t *pEnd);
 uint32_t CalcCRC32a32(uint32_t *pBegin, uint32_t *pEnd)
 {
  uint32_t dum;
@@ -209,7 +210,6 @@ pak:;
 		if (CntPrnt<=SysTickCntr)
 		{
 			StageFlg=1-StageFlg;
-			CntPrnt=SysTickCntr+5000;
 			if (StageFlg){OffCPUSecLED;}else{OnCPUSecLED;}
 
 				if (( OlCo.CurrentMenu==MenuTestIOs )) 	 CntPrnt=SysTickCntr+2000; else CntPrnt=SysTickCntr+5000;
@@ -231,8 +231,9 @@ pak:;
 	   for (it=0;it<AllADCCh;it++)   //<2uS
 	   {
 	     fADC_ArrVolt[it]=Uvfrom12bit(ADC_Arr[it]); //*cal1+cal2
-	     AnalisRS();
 	   }
+	     AnalisRS();
+
 	   fADC_ArrSpec[OilNozhTemp]=rtot(OhmFromV(fADC_ArrVolt[OilNozhTemp]));  //temp in C
 	     AnalisRS();
 	   fADC_ArrSpec[SpindelTemp]=rtot(OhmFromV(fADC_ArrVolt[SpindelTemp]));  //temp in C
@@ -245,12 +246,8 @@ pak:;
 	//  fADC_ArrSpec[TotalCurrent]=ADC_ArrRaw[TotalCurrent]]*);
 
 	   fADC_ArrSpec[TotalCurrent]=fADC_ArrVolt[TotalCurrent]/(19.8f*0.01f); //Rshunt=0.01ohm gain 19.8
-	     AnalisRS();
 	   fADC_ArrSpec[SecFlowRegCurr]=fADC_ArrVolt[SecFlowRegCurr];
-	     AnalisRS();
 	   fADC_ArrSpec[MPWR_24In]=fADC_ArrVolt[MPWR_24In]*9.85f; //~10 is R divider ratio (22+7.5)/3.3
-	     AnalisRS();
-
 
 	//******************************************************************************
 	 if (( OlCo.CurrentMenu==MenuTestIOs )) goto background_test_bypass;
