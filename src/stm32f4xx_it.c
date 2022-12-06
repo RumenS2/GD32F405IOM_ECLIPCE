@@ -33,7 +33,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "gd32f4xx.h"
 #include "stm32f4xx_it.h"
+#include "Errors.h"
 #include "ANSTAT.h"
+#include "variables.h"
 volatile uint16_t EnableTasking=0;
 volatile uint32_t SysTickCntr=0;
 
@@ -56,7 +58,7 @@ void NMI_Handler(void)
 
   /* USER CODE END NonMaskableInt_IRQn 0 */
   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-
+	MState.ErrorFlags|=EF_HW_SomeErr;
   /* USER CODE END NonMaskableInt_IRQn 1 */
 }
 

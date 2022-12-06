@@ -61,7 +61,6 @@
 #include <math.h>
 
 //#include "arm_comm.h"
-#include "gd32f4xx.h"
 
 
 /**********

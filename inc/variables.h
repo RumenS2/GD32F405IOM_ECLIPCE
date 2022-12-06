@@ -2,45 +2,7 @@
 #define __VARIABLES_H
 
 #include "gd32f4xx.h" //types
-
-#define EF_NoEncFeedback      0x00000001
-#define EF_EndSwitchNoEnd     0x00000002
-#define EF_EndSwitchTooEarly  0x00000004
-#define EF_EndSwitchBlock     0x00000008
-#define EF_Inv1Fault          0x00000010
-#define EF_Inv2Fault          0x00000020
-#define EF_Inv3Fault          0x00000040
-#define EF_ChainLax           0x00000080
-#define EF_CALisLost          0x00000100
-#define EF_CFGisLost          0x00000200 //for current profile
-#define EF_HSE_FailedToStart  0x00000400
-#define EF_WWG_Reset          0x00000400  //wdg reset
-#define EF_ADCNotReady        0x00000800  //some hard err
-#define EF_ARS_SomeErr        0x00000800  //some hard err
-#define EF_HW_SomeErr         0x00000800  //some hard err
-#define EF_KnifeNotMoving     0x00001000
-#define EF_KnifeBlockMayBe    0x00002000
-#define EF_CanNotStopRolls    0x00004000 //?????????????????
-#define EF_OverCurrent        0x00008000
-#define EF_OvrVoltage         0x00010000
-#define EF_OvrHeatPump        0x00020000
-#define EF_OvrHeatSpindel     0x00040000
-#define EF_OvrHeatOil         0x00080000
-#define EF_UnderVoltage       0x00100000
-#define EF_UnderThrPump       0x00200000
-#define EF_UnderThrSpindel    0x00400000
-#define EF_UnderThrOil        0x00800000
-#define EF_SpindelEnbldInNEUT 0x01000000
-#define EF_SpindelNotEnbldInA 0x02000000
-
-//#define EF_EmergencySTOP      0x80000000
-
-#define WF_StopIsPressed      0x80000000
-#define WF_SpindelIsEnabled   0x40000000
-#define WF_10minutesHydrOff   0x20000000
-#define WF_CutterNotInZPos    0x10000000
-#define WF_LimitIsSkipped     0x08000000
-#define WF_IntTempHeaterON    0x04000000
+#include "Errors.h"
 
 struct OldComands{
 uint16_t ButtonsState;   //set from touch display board

@@ -130,7 +130,7 @@ int main(void)
   MX_USART2_UART_Init(); //no in encoder mode
   MX_USART1_UART_Init(); //no in encoder mode
 #endif
-  MX_USART0_UART_Init();RSS.State=RSstWait1Rcv;
+  MX_USART0_UART_Init();USARTinUSE_RX_START(USART0);
   ADC012_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
@@ -200,7 +200,6 @@ OlCo.CurrentMenu=MenuMain;
 MState.RunFlag=0;//ClrCLEN;
 RecalSomeVars();
 
-RSS.State=RSstWait1Rcv;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -212,10 +211,10 @@ pak:;
 			StageFlg=1-StageFlg;
 			if (StageFlg){OffCPUSecLED;}else{OnCPUSecLED;}
 
-				if (( OlCo.CurrentMenu==MenuTestIOs )) 	 CntPrnt=SysTickCntr+2000; else CntPrnt=SysTickCntr+5000;
+				if (( OlCo.CurrentMenu==MenuTestIOs )) 	 CntPrnt=SysTickCntr+1000; else CntPrnt=SysTickCntr+5000;
 				ManualModTimer=ManualModTimer+StageFlg;
 		}
-		if (RSS.ErrCod)
+		if (RSS0.ErrCod)
 		{
 			if (StageFlg) {if ((CntPrnt-4000)<=SysTickCntr) {OnCPUSecLED;}}
 		}

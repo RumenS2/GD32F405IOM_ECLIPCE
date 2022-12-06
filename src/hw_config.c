@@ -444,7 +444,7 @@ static void MX_TIM2_Init(void)
     timer_input_capture_config(TIMER1,TIMER_CH_0 , &timer_icintpara);
     timer_input_capture_config(TIMER1,TIMER_CH_1 , &timer_icintpara);
 
-    timer_quadrature_decoder_mode_config(TIMER1, TIMER_ENCODER_MODE2, TIMER_IC_POLARITY_RISING, TIMER_IC_POLARITY_RISING); //x4??
+    timer_quadrature_decoder_mode_config(TIMER1, TIMER_ENCODER_MODE2, TIMER_IC_POLARITY_RISING, TIMER_IC_POLARITY_RISING); //x4
 
     timer_enable(TIMER1);
 
@@ -494,8 +494,8 @@ void MX_USART0_UART_Init(void)
   NVIC_SetPriority(USART0_IRQn, OPPUSART1_IRQn);  //prio from h2_config.h from
   NVIC_EnableIRQ(USART0_IRQn);
 //! it is slave usart, responds to display
-  usart_interrupt_enable(USART0, USART_INT_RBNE);
-  LoRCV_Enbl_485_0;
+//  from main LoRCV_Enbl_485_0;
+//  from main usart_interrupt_enable(USART0, USART_INT_RBNE);
 }
 
 #if ENCODER_USED==0

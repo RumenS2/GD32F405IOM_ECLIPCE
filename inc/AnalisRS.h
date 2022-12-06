@@ -17,6 +17,7 @@
 
 #define RsRetrCMD 3
 
+#define COMM_EXCHG 0x44
 #define COMM_GET 0x22
 #define COMM_SET 0x66
 
@@ -71,19 +72,17 @@ uint32_t LastAnsTimeStamp;
 uint32_t ExtraCntTimeout;
 };
 
-extern uint8_t RSBuffer[RSBUFLEN];
-extern volatile struct RS_State RSS;
+//extern uint8_t RS0Buffer[RSBUFLEN];
+extern volatile struct RS_State RSS0,RSS2;
 extern volatile uint8_t CommandToIOM;
 extern volatile uint8_t ConfigNowReceived;
+extern volatile uint32_t globalrserrcnt;
 
-
+void USARTinUSE_RX_START(uint32_t usart_periph);
 void Calc_CS_WithCopy(uint8_t* BegSourceAddr,uint8_t* BegDestAddr, uint16_t Len);
-void AddCRC(volatile uint16_t *pbCRC,volatile uint8_t *pbBuffer);
 void Crc16ModbusFast(volatile uint16_t* lCrc, volatile uint8_t* lData); // sourcer32@gmail.com
 uint16_t Calc_CS(uint8_t* BegAd, uint16_t Len);
 void AnalisRS(void);
-void InitUSART1(void);
-void InitUSART3(void);
 
 #endif
 

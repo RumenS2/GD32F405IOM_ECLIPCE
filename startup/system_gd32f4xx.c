@@ -37,7 +37,7 @@
 
 /* system frequency define */
 #define __IRC16M          (IRC16M_VALUE)            /* internal 16 MHz RC oscillator frequency */
-#define __HXTAL           (HXTAL_VALUE)             /* high speed crystal oscillator frequency */
+#define __HXTAL           (HXTAL_VALUE)             /* high speed crystal oscillator frequency  SEE 8MHz<= gd32f4xx.h!!!!! */*/
 #define __SYS_OSC_CLK     (__IRC16M)                /* main oscillator frequency */
 
 /* select a system clock by uncommenting the following line */
